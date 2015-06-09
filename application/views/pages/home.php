@@ -5,5 +5,5 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-echo anchor('login', 'login', 'title="about"');
+echo anchor('pages/enviaSMS', 'enviaSMS', 'title="enviasms"');
 

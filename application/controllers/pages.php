@@ -32,8 +32,8 @@ class pages extends CI_Controller {
             'view_principal' => 'Principal',
             'view_pagina' => $page
         );
-        $this->load->view('templates/header',$dados);
-        $this->load->view('pages/'.$page, $dados);
+        $this->load->view('templates/header', $dados);
+        $this->load->view('pages/' . $page, $dados);
         $this->load->view('templates/footer');
     }
 
@@ -46,6 +46,38 @@ class pages extends CI_Controller {
         );
         $this->load->view('templates/header', $dados);
         $this->load->view('pages/login', $dados);
+        $this->load->view('templates/footer');
+    }
+
+    function enviaSMS() {
+        $this->load->helpers('url');
+        $this->load->helpers('funcoes');
+        $dados = array(
+            'titulo_pagina' => 'Envia',
+            'view_principal' => 'Principal',
+            'view_pagina' => 'Login'
+        );
+        $this->load->view('templates/header', $dados);
+        $this->load->view('pages/Envia_sms', $dados);
+        $this->load->view('templates/footer');
+    }
+
+    function enviando() {
+        $this->load->helpers('url');
+        $this->load->helpers('funcoes');
+        $dados = array(
+            'titulo_pagina' => 'Envia',
+            'view_principal' => 'Principal',
+            'view_pagina' => 'Login'
+        );
+        $dados['post'] = $_POST;
+        $resultado = '';
+        if ($_POST['Submit']) {
+            $resultado = SendSMS('127.0.0.1', '80', '', '', $_POST['txtTELEFONE'], $_POST['txtMENSAGEM']);
+        }
+        $dados['resposta'] = $resultado;
+        $this->load->view('templates/header', $dados);
+        $this->load->view('pages/Envia_sms', $dados);
         $this->load->view('templates/footer');
     }
 
