@@ -21,7 +21,7 @@ class pages extends CI_Controller {
             'view_principal' => 'Principal',
             'view_pagina' => 'Home'
         );
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $dados);
         $this->load->view('pages/home', $dados);
         $this->load->view('templates/footer');
     }
