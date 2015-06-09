@@ -5,13 +5,13 @@
  * and open the template in the editor.
  */
 if(isset($post)){    
-    echo $post['txtTELEFONE'];
-    echo $resposta;
+    //echo $post['txtTELEFONE'];
+    echo '<div style="width:400px;border-radius:8px;background-color:green;color:white;padding:5px;">'.$resposta.'</div>';
 }
 ?>
 <form name='frmSend' action="enviando" method='post'>
     <input type='hidden' name='acao' value='sendsms'>
-    <table width="100%" style="border-collapse:collapse;" border="1">
+    <table  style="border-collapse:collapse;" border="1">
         <tr>
             <td>Telefone:</td>
             <td><input type="text" name="txtTELEFONE" value="+55XX88888888"></td>

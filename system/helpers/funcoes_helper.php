@@ -22,13 +22,15 @@ if (!function_exists('SendSMS')) {
     function SendSMS($host, $port, $username, $password, $phoneNoRecip, $msgText) {
 
         $fp = fsockopen($host, $port, $errno, $errstr);
+        $res = array('conexao'=>'');
         if (!$fp) {
-            echo "errno: $errno \n";
-            echo "errstr: $errstr\n";
+            echo "errno: ".$errno." \n";
+            echo "errstr: ".$errstr." \n";
             return $result;
+            $res['erro'] = $result;
         }
         fwrite($fp, "GET /PhoneNumber=" . rawurlencode($phoneNoRecip) . "&Text=" . rawurlencode($msgText) . " HTTP/1.0\n");
-        echo $aux3;
+        //echo $aux3;
         if ($username != "") {
             $auth = $username . ":" . $password;
             echo "auth: $auth\n";
@@ -38,10 +40,10 @@ if (!function_exists('SendSMS')) {
         }
         fwrite($fp, "\n");
 
-        $res = "";
+        
 
         while (!feof($fp)) {
-            $res .= fread($fp, 1);
+            $res['conexao'] .= fread($fp, 1);
         }
         fclose($fp);
 

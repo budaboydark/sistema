@@ -6,6 +6,6 @@
  * and open the template in the editor.
  */
 ?>
-              <em>&copy; 2014</em>
+              <em>&copy; 2015</em>
         </body>
 </html>

@@ -75,7 +75,7 @@ class pages extends CI_Controller {
         if ($_POST['Submit']) {
             $resultado = SendSMS('127.0.0.1', '80', '', '', $_POST['txtTELEFONE'], $_POST['txtMENSAGEM']);
         }
-        $dados['resposta'] = $resultado;
+        $dados['resposta'] = $resultado['conexao'];
         $this->load->view('templates/header', $dados);
         $this->load->view('pages/Envia_sms', $dados);
         $this->load->view('templates/footer');
