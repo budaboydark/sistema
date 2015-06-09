@@ -10,7 +10,6 @@ if(isset($post)){
 }
 ?>
 <form name='frmSend' action="enviando" method='post'>
-    <input type='hidden' name='acao' value='sendsms'>
     <table  style="border-collapse:collapse;" border="1">
         <tr>
             <td>Telefone:</td>
@@ -18,7 +17,7 @@ if(isset($post)){
         </tr>
         <tr>
             <td>Mensagem:</td>
-            <td><textarea name="txtMENSAGEM" cols="60" rows="10" id="txtMENSAGEM"></textarea></td>
+            <td><textarea name="txtMENSAGEM" maxlength="120" cols="60" rows="10" id="txtMENSAGEM"></textarea></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
