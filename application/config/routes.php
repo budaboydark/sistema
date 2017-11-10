@@ -54,8 +54,8 @@ $route['404_override'] = '';*/
 
 
 $route['default_controller'] = 'pages';
-$rout['(:any)/(:any)'] = 'pages/$1/$2';
-
-$route['(:any)'] = 'pages/view/$1/$2';
+$route['pages/(:any)'] = 'pages/$1';
+$route['(:any)/(:any)'] = '$1/$2/$3';
+//$route['(:any)'] = 'pages/view/$1/$2';
 
 
